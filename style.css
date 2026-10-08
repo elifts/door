@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+.ach {
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+    min-height: 100px;
+    
+    margin: 20px;
+    
+}
+.badge {
+    width:100%; 
+    background:transparent; 
+    margin-bottom:10px; 
+    display:flex; 
+    align-items:center; 
+    position: relative;
+}
+body{
+
+    color: white;
+    background-image: url("Site-background-dark.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: rubik, helvetica, arial, sans-serif;
+}
+.title{
+    margin: 20px;
+}
+.divider{
+    width: 30%; 
+    height: 2px; 
+    background: linear-gradient(to right, transparent 0%, #B49A8010 50%); 
+    overflow: clip; 
+    margin-left: auto;
+}
+.outersss{
+    background-color: rgba(24,13,10,.6);
+    border-radius: 12px;
+    padding-top: 24px;
+    padding-right: 36px;
+    padding-left: 36px;
+    position: relative;
+    max-width: 1284px;
+    flex-direction: column;
+    width: calc(100% - 108px);
+    margin-bottom: 0;
+    margin: auto;
+    box-shadow: 0 0 18px 6px rgba(0,0,0,.6);
+    margin-top: 148px;
+}
+.titless{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.maintitless{
+    font-size: 200%;
+    text-align: center;
+    
+}
+.MiniTitle{
+    font-size: 16px;
+}
+.Titleimg{
+    width: 40px;
+    height: 40px;
+    aspect-ratio: auto 40 / 40;
+    vertical-align:middle
+}
+.mainTitle{
+    font-weight: bolder;
+    vertical-align: initial;
+    text-align: center;
+    line-height: 1.75;
+}
+.Tabs_tab{
+    color: white;
+    cursor: pointer;
+    flex-shrink: 0px;
+    line-height: 14px;
+    position: relative;
+    list-style-type: none;
+    list-style: none;
+    font-size: 16px;
+    transition: box-shadow .4s;
+    box-sizing:inherit;
+}
+.Tabs{
+    align-items: flex-end;
+    display: flex;
+    list-style: none;
+    position: relative;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+}
+.Tabs_tab_labels{
+    align-items: center;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    letter-spacing: .5px;
+    margin: 0 11px;
+    text-align: center;
+    text-decoration: none;
+    transition: color .1s;
+    white-space: nowrap;
+    color: white;
+    
+    
+}
+.Tabs_tab_label{
+    transition: color .3s;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-behavior: normal;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: rubik,helvetica,arial,sans-serif;
+    
+}
+a.Tabs_tab_label {
+    color: rgb(230,230,230, .75) !important;
+    text-decoration: none;
+    
+}
+a.Tabs_tab_label:hover {
+    color:#e6e6e6 !important;
+    
+}
+.Tabs_tab[aria-selected="true"] {
+    box-shadow: inset 0 -3px 0 -1px #e8bb81;
+    transition: box-shadow .4s;
+}
+.Tabs_tab[aria-selected="true"] .Tabs_tab_label {
+    color: #e8bb81 !important;
+}
+.tab_content_TitleBox{
+    margin-left: 30px; 
+    height: 56px;
+    
+    font-family: Oswald; 
+    color: #ffdebd; 
+    background: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    border-radius: 3em;
+}
+.tab_content_Title{
+    margin: 0px;
+    margin-left: 15px;
+    padding: 6px;
+    font-size: 200%; 
+    font-weight: 600; 
+    font-family: Oswald; 
+    color: #ffdebd; 
+    
+
+    
+}
+.TabsWrapper{
+    border-bottom:1px solid rgba(255,255,255,.25)
+}
+.Achevelist{
+    overflow-y:scroll; 
+    height: 600px; 
+    width:100%; 
+    mask: linear-gradient(to bottom, transparent 0%, black 3%, black 98%, transparent 100%); 
+    padding: 12px 0 2px 15px;
+}
+.badgeicon{
+    position: relative; 
+    width: 145px; 
+    height: 145px;
+}
+.badgeborder1{
+    width: 145px; 
+    height: 145px; 
+    
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 2; 
+    pointer-events: none;
+    mask: url("https://static.wikia.nocookie.net/doors-game/images/a/a3/BadgeOutlineFull.png")no-repeat center/contain;
+    mask-mode: match-source;
+    mask-repeat: no-repeat;
+    mask-clip: border-box;
+    mask-origin: border-box;
+    mask-composite: add;
+    mask-position-x: center;
+    mask-position-y: center;
+    mask-size: contain;
+    mask-image: url("https://static.wikia.nocookie.net/doors-game/images/a/a3/BadgeOutlineFull.png");
+}
+.badgeborder2{
+    width: 145px; 
+    height: 145px; 
+    
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 2; 
+    pointer-events: none;
+    mask: url("https://static.wikia.nocookie.net/doors-game/images/1/12/BadgeOutlineSecretV2.png")no-repeat center/contain;
+    mask-mode: match-source;
+    mask-repeat: no-repeat;
+    mask-clip: border-box;
+    mask-origin: border-box;
+    mask-composite: add;
+    mask-position-x: center;
+    mask-position-y: center;
+    mask-size: contain;
+    mask-image: url("https://static.wikia.nocookie.net/doors-game/images/1/12/BadgeOutlineSecretV2.png");
+}
+.badgeImage{
+    position: absolute; 
+    inset: 0; 
+    margin: auto; 
+    width: 130px; 
+    height: 130px; 
+    z-index: 1; 
+    border-radius: 50%; 
+    overflow: hidden;
+}
+.fileelement{
+    width:130;
+    height: 130;
+    vertical-align: middle;
+
+}
+.haligncenter{
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: table;
+    border-collapse: collapse;
+    clear: none;
+    float: none;
+}
+.BadgeContent{
+    padding-left: 25px; 
+    flex: 1; 
+    overflow: clip; 
+    display: inline-block; 
+    min-height: 140px;
+}
+.SpanBadgeName{
+    display:inline-block; 
+    line-height: 55px; 
+    font-size: 40px; 
+    background: linear-gradient(to right, #c2ffbd, #ca0101);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+}
+.BadgeName{
+    font-family: Oswald; 
+    font-weight: 500;
+    font-style: normal !important;
+    text-decoration: none;
+    transform: none;
+}
+.BadgeName{
+    font-family: Oswald; 
+    font-weight: 500;
+    text-decoration-color: currentcolor;
+    text-decoration-style: solid;
+    text-decoration: none;
+    transform: none;
+    text-decoration-thickness: auto;
+    transition: color .3s;
+    color: #e8bb81;
+    line-height: inherit;
+}
+.Descrition{
+    display: inline-block;
+    color: #C19184;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+    box-sizing: inherit;
+    font-family: "Oswald",sans-serif;
+    line-height: 39px;
+    font-size: 28px;
+    font-weight: 400;
+}
+.How{
+    display: inline-block;
+    color: #FFDEBD;
+    font-family: "Oswald",sans-serif;
+    line-height: 39px;
+    font-size: 28px;
+    font-weight: 400;
+
+}
+.badgeseperator{
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, #B49A8010 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: linear-gradient(to right, transparent 0%, rgba(180, 154, 128, 0.063) 50%);
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    overflow: clip;
+    margin-left: auto;
+}
+.badgeButtons{
+    position: relative;
+    padding-right: 15px;
+
+}
+.badgetutorialbutton{
+    position: absolute;
+    text-align: right;
+    bottom: 100%;
+    padding-bottom: 10px;
+    right: 15px;
+}
+.badgereferencebutton{
+    position: absolute;
+    text-align: right;
+    bottom: 100%;
+    padding-bottom: 10px;
+}
+.badgetutorialbox{
+    width:100%;
+    background-color: rgba(0,0,0,0.2); 
+    border:2px solid rgb(208,174,130); 
+    border-radius:8px;
+    color:#ffdebd; 
+    padding: 0 20px 10px 20px; 
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+.badgetutorialTitle{
+    font-family: Oswald; 
+    color: #ffdebd; 
+    font-size: 200%
+}
+.badgereferenceTitle{
+    font-family: Oswald; 
+    color: #ffdebd; 
+    font-size: 200%
+}
+.badgereferencebox{
+    width:100%;
+    background-color: rgba(0,0,0,0.2); 
+    border:2px solid rgb(208,174,130); 
+    border-radius:8px;
+    color:#ffdebd; 
+    padding: 0 20px 10px 20px; 
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+.badgeButtons {
+    position: relative;
+    padding-right: 15px;
+}
+.badgetutorialcontainer,
+.badgereferencecontainer {
+    display: none;
+    
+}
+.badgetutorialbutton:hover + .badgetutorialcontainer,
+.badgereferencebutton:hover + .badgereferencecontainer {
+    display: block;
+}
+.rewards{
+    right: 15px;
+    top: 0;
+    text-align: right;
+    line-height: 60px;
+    font-size: 35px;
+    position: absolute;
+    display: inline;
+    box-sizing: border-box;
+    font-family: "Oswald",sans-serif;
+    font-weight: 500;
+    
+}
+.Knobs, .revives, .stardust{
+    color: #FDC4AD;
+    text-shadow: -1px -1px 0 #3E2D2B, 1px -1px 0 #3E2D2B, -1px 1px 0 #3E2D2B, 1px 1px 0 #3E2D2B;
+    text-align: right;
+    
+    
+}
+.Knobsimgcontainer, .revivesimgcontainer, .stardustimgcontainer, .skinimgcontainer{
+    box-sizing: border-box;
+    display: inline;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 0 17px 8px;
+}
+.Knobsimg, .revivesimg, .stardustimg {
+    vertical-align: middle;
+    opacity: 1;
+    transition: opacity .3s ease-out;
+    width: 50px;
+    height: 50px;
+    aspect-ratio: auto 50 / 50;
+    box-sizing: border-box;
+}
+.revivesimg{
+    width: 58px;
+    height: 58px;
+}
+.skin {
+    display:inline-block; 
+    position: relative; 
+    vertical-align: -12px; 
+    margin-left: 5px;
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+}
+.skin::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background-image: linear-gradient(135deg,#FFA7DD 0%,#FEF8CC 26.8%,#FBFBFB 52.2%,#FFCD85 56.7%,#D3FFFC 76.3%,#FFB4B4 100%);
+    background-color: #FF89E5;
+    background-blend-mode: multiply;
+    opacity: 0.3;
+    z-index: 0;
+}
+.skinimg{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    text-align: right;
+    line-height: 60px;
+    font-size: 35px;
+    width: 60px;
+    height: 60px;
+    aspect-ratio: auto 60 / 60;
+}
+.skintext{
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+    font-size: 35%;
+    color: #FFF0C1;
+    line-height: 25px;
+    font-family: "Montserrat",sans-serif !important;
+    text-align: right;
+}
+
+
+.badge {
+    position: relative;
+}
+
+.badge::before {
+    border-radius: 50% 40% 45% 55%;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 10px;
+    background: hsl(6, 68%, 42%);
+    z-index: 10;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    transform: rotate(6deg);
+    transform-origin: left center;
+    transition: width .35s ease-out;
+}
+
+.badge::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9;
+    transition: opacity .5s ease ;
+    box-shadow: 0 0 18px 6px rgba(0,0,0,.6);
+}
+
+.badge.clicked::before {
+    width: 100%;
+}
+
+.badge.clicked::after {
+    opacity: 1;
+}
+.reset{
+    right: 10px;
+    bottom:10px;
+    width: 50px;
+    height: 50px;
+    position:fixed;
+    cursor: pointer;
+}
+.fire {
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 105vw;
+    height: 150vh;
+    background-image: url("InFiredampEffect.png");
+    background-size: 100px 100px;
+    background-repeat: repeat;
+
+    clip-path: inset(100% 0 0 0);
+    
+    z-index: 100;
+}
+.fire.active{
+    animation: gameOver 3s ease-out forwards;
+}
+.fire:nth-child(2) {
+    background-position: -50px 0;
+}
+
+@keyframes gameOver {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+
+    to {
+        clip-path: inset(-10% 0 0 0);
+    }
+}
+.wallpaper{
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.ransom{
+    width: 105vw;
+    height: 105vh;
+    left: -10px;
+    top: -10px;
+    display: none;
+    position: fixed;
+    z-index: 100;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: rubik, helvetica, arial, sans-serif;
+}
+.omori {
+    position: fixed;
+    width: 50px;
+    height: 100px;
+    background-image: url("https://static.wikia.nocookie.net/doors-game/images/1/1b/RaredroneD.gif/revision/latest?cb=20260828225603");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.dark {
+    position: fixed;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    background: rgb(1,1,1);
+    transition: opacity 30s ease-in-out;
+    pointer-events: none;
+    z-index: 9999;
+}
+.almas {
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 1000px;
+
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/9/92/AlmaSitNotice.png/revision/latest/scale-to-width-down/1000?cb=20260924065131');
+    background-size: 1000px 750px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    z-index: 99999;
+}
+.hand1{
+    position: fixed;
+    left: 10%;
+    top: 35%;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+        background-size: 150px 150px;
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/7/7f/AlmaSitHand_R.png/revision/latest/scale-to-width-down/185?cb=20260924065141');
+}
+.hand2{
+    position: fixed;
+    left: 20%;
+    top: 17%;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+        background-size: 150px 150px;
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/0/02/AlmaSitHand_L.png/revision/latest/scale-to-width-down/154?cb=20260924065140');
+}
