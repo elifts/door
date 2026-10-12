@@ -50,7 +50,7 @@ body{
     margin-bottom: 0;
     margin: auto;
     box-shadow: 0 0 18px 6px rgba(0,0,0,.6);
-    margin-top: 148px;
+    margin-top: 50px;
 }
 .titless{
     margin-top: 15px;
@@ -65,11 +65,13 @@ body{
 .MiniTitle{
     font-size: 16px;
 }
-.Titleimg{
+.Titleimg {
+    position: relative;
     width: 40px;
     height: 40px;
-    aspect-ratio: auto 40 / 40;
-    vertical-align:middle
+    vertical-align: middle;
+    z-index: 1;
+    cursor: pointer;
 }
 .mainTitle{
     font-weight: bolder;
@@ -517,8 +519,8 @@ a.Tabs_tab_label:hover {
     position: absolute;
     left: 0;
     top:0;
-    width: 105vw;
-    height: 150vh;
+    width: 100vw;
+    height: 100vh;
     background-image: url("InFiredampEffect.png");
     background-size: 100px 100px;
     background-repeat: repeat;
@@ -532,6 +534,7 @@ a.Tabs_tab_label:hover {
 }
 .fire:nth-child(2) {
     background-position: -50px 0;
+    
 }
 
 @keyframes gameOver {
@@ -543,15 +546,10 @@ a.Tabs_tab_label:hover {
         clip-path: inset(-10% 0 0 0);
     }
 }
-.wallpaper{
-    height: 50px;
-    width: 50px;
-    position: relative;
-}
+
 .ransom{
-    width: 105vw;
-    height: 105vh;
-    left: -10px;
+    width: 100vw;
+    height: 100vh;
     top: -10px;
     display: none;
     position: fixed;
@@ -575,8 +573,9 @@ a.Tabs_tab_label:hover {
     inset: 0;
     display: block;
     opacity: 0;
-    background: rgb(1,1,1);
+    background: rgb(4,4,4);
     transition: opacity 30s ease-in-out;
+    
     pointer-events: none;
     z-index: 9999;
 }
@@ -601,8 +600,10 @@ a.Tabs_tab_label:hover {
     left: 10%;
     top: 35%;
     width: 200px;
+    transform-origin: bottom center;
     height: 200px;
     background-repeat: no-repeat;
+    animation: rotate 3s ease-in-out infinite alternate;
         background-size: 150px 150px;
     background-image: url('https://static.wikia.nocookie.net/doors-game/images/7/7f/AlmaSitHand_R.png/revision/latest/scale-to-width-down/185?cb=20260924065141');
 }
@@ -612,7 +613,266 @@ a.Tabs_tab_label:hover {
     top: 17%;
     width: 200px;
     height: 200px;
+    transform-origin: bottom center;
+    animation: rotate 6s ease-in-out infinite alternate;
     background-repeat: no-repeat;
         background-size: 150px 150px;
     background-image: url('https://static.wikia.nocookie.net/doors-game/images/0/02/AlmaSitHand_L.png/revision/latest/scale-to-width-down/154?cb=20260924065140');
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(-1deg);
+    }
+    to {
+        transform: rotate(1deg);
+    }
+}
+
+.jumpalmas{
+    position: fixed;
+    
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0vh;
+    background-image: url("https://static.wikia.nocookie.net/doors-game/images/2/26/AlmaCloseup1.png/revision/latest/scale-to-width-down/1000?cb=20260924070432");
+    background-size: contain;
+    background-position: bottom center;
+    background-size: 40% auto;
+    opacity: 0;
+    background-repeat: no-repeat;
+    
+    transition: background-size .1s linear;
+    
+    z-index: 99999;
+}
+.jumphands1{
+    position: fixed;
+    left: -55%;
+    bottom: 1%;
+    background-position: bottom right;
+    width: 2000px;
+    height: 2000px;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: 800px 800px;
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/e/eb/AlmaCloseupHandR_Jumpscare.png/revision/latest/scale-to-width-down/1000?cb=20260924070717');
+}
+.jumphands2{
+    position: fixed;
+    right: -55%;
+    bottom: 1%;
+    opacity: 0;
+    background-position: bottom left;
+    width: 2000px;
+    transform: rotate(-10deg);
+    height: 2000px;
+    background-repeat: no-repeat;
+    background-size: 800px 800px;
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/8/89/AlmaCloseupHandL_Jumpscare.png/revision/latest/scale-to-width-down/1000?cb=20260924070721');
+}
+.dedalma{
+    background-image: url('https://static.wikia.nocookie.net/doors-game/images/d/d2/AlmaJournalArt.png/revision/latest?cb=20260924071411');
+    position: fixed;
+    inset: 0;
+    
+    opacity: 0;
+    transition: opacity 10s;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: contain;
+    background-position: center;
+    position: 50%;
+    z-index: 99999;
+}
+.omori{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.popupran{
+    position: absolute;
+    inset: 0;
+    width: 400px;
+    height: 300px;
+    margin-top: 25px;
+    margin-left: 10px;
+    background-size: contain;
+    background-position: center;
+    position: 50%;
+    z-index: 99999;
+}
+.popuprancontainser{
+    
+    border-radius: 5px;
+    width: 420px;
+    height: 335px;
+    background-color: #7e3f3b;
+    position: absolute;
+}
+.circlebuttionx1{
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    margin-top: 6px;
+    margin-left: 360px;
+    border-radius: 7px;
+    background-color: #c76765;
+}
+.circlebuttionx2{
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    margin-top: 6px;
+    margin-left: 380px;
+    border-radius: 7px;
+    background-color: #c76765;
+}
+.circlebuttionx3{
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    margin-top: 6px;
+    margin-left: 400px;
+    border-radius: 7px;
+    background-color: #c76765;
+}
+.wallpaper{
+    
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    opacity: inherit;
+    transition: opacity 1s;
+}
+.wallpaper1{
+    
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    opacity: .1;
+    
+}
+.wallpaperss{
+    bottom: 5px;
+    background-image: url("https://static.wikia.nocookie.net/doors-game/images/3/34/DOOR.png/revision/latest?cb=20260604220710");
+    height: 50px;
+    position: fixed;
+    width: 50px;
+    background-size: 50px 50px;
+    background-repeat: repeat;
+    pointer-events: none;
+    
+    z-index: 1;
+}
+.wallpaperssss {
+    width: 400px;
+    height: 60px;
+    bottom: 0px;
+    position: fixed;
+    opacity: 0;
+    transition: transform 1s;
+    transform: translate(-360px);
+}
+
+.wallpaperssss:hover {
+    transform: translateX(0px);
+    opacity: 1;
+}
+.spark {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: #fffbd6;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow:
+        0 0 4px #fff,
+        0 0 10px #f4ffa9,
+        0 0 20px #ffb347,
+        0 0 35px #ff8c32;
+    filter: brightness(1.5);
+    will-change: transform, opacity;
+}
+.gummy {
+    position: fixed;
+    z-index: 0;
+    width: 30px;
+    transform: rotate(-45deg);
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 5px;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 2s ease-out;
+}
+.spotlight {
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    pointer-events: none;
+    background:
+    radial-gradient(
+            circle 150px at var(--x, 50%) var(--y, 50%),
+            #00000000 0%,
+            #000000af 30%,
+            #00000021 55%,
+            #000000fd 70%,
+            #00000028 78%,
+            #000 100%
+        );
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.spotlights {
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    pointer-events: none;
+    background:#000000;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 1s;
+}
+.backroom{
+    
+    background-image: url("https://thereader.mitpress.mit.edu/wp-content/uploads/2026/03/Backrooms_model.jpg");
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    background-size: 100vw 100vh;
+    background-repeat: repeat;
+    pointer-events: none;
+    top: 0px;
+    z-index: 10;
+    left: 0px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+.itasda{
+    font-style: italic;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.drone {
+    width: 200px;
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+}
+.key{
+    background-image: url("https://static.wikia.nocookie.net/doors-game/images/6/60/BackdoorKey.png/revision/latest?cb=20240315212446");
+    height: 50px;
+    position: fixed;
+    width: 50px;
+    background-size: 50px 50px;
+    background-repeat: repeat;
+    
+    z-index: 54;
+
+    transition: .5s;
 }

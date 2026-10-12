@@ -423,6 +423,8 @@ fetch("achievements.json")
             return null;
         }
         document.querySelectorAll(".fire").forEach(fire => {
+        fire.style.height = "150vh";
+        fire.style.width = "150vw";
         fire.classList.add("active");
         });
         setTimeout(reset2,3000)
@@ -431,91 +433,146 @@ fetch("achievements.json")
         localStorage.removeItem("clickedBadges");
         location.reload();
     }
+    let wallpaperoption;
     function wallpaper(x){
+        wallpaperoption = x;
         if(x == 1){
             document.getElementsByClassName("body")[0].style = "background-image: url(Site-background-dark.webp)"
             
         }else if(x == 2){
             document.getElementsByClassName("body")[0].style = "background-image: url(NewHotel.webp)"
         }else if(x == 3){
-            document.getElementsByClassName("body")[0].style = "background-image: url(https://static.wikia.nocookie.net/doors-game/images/d/dc/Archives_A-000_%281%29.png/revision/latest/scale-to-width-down/1000?cb=20260903083445)"
+            document.getElementsByClassName("body")[0].style = "background-image: url(https://static.wikia.nocookie.net/doors-game/images/2/25/The_Archives.png/revision/latest?cb=20260829193653)"
         }else if(x == 4){
             document.getElementsByClassName("body")[0].style = "background-image: url(Garden_Mill.webp)"
         }else if(x == 5){
             Ransom();
+            return;
         }else if(x == 6){
-            document.getElementsByClassName("body")[0].style = "background-image: url(Site-background-dark.webp)"
+            document.getElementsByClassName("body")[0].style = "background-image: url(https://static.wikia.nocookie.net/doors-game/images/1/16/StairwellThumbnail2.png/revision/latest?cb=20260830203911)"
+        }else if(x == 7){
+            document.getElementsByClassName("body")[0].style = "background-image: url(https://static.wikia.nocookie.net/doors-game/images/0/01/DailyTeaser36.jpg/revision/latest/scale-to-width-down/1000?cb=20250702223510)"
         }
-            
+        localStorage.setItem("wallpaperoption", wallpaperoption);
         
     }
 
 
     function Ransom(){
     let Ransoms = document.getElementsByClassName("ransom")[0];
-    let Rans1 = new Audio("https://static.wikia.nocookie.net/doors-game/images/a/a6/GEN_GLITCH_LOOP_(135402425939071).ogg");
-    let Rans2 = new Audio("dragon-studio-glitch-effect-1-397982.mp3");
-    Rans1.play();
-    Rans2.play();
+    let Rans1 = "https://static.wikia.nocookie.net/doors-game/images/b/bc/Ransom_UI_-_Error_%2880099403859001%29.ogg/revision/latest?cb=20260929185608";
+    setTimeout(() => {
+        alert("an error has occurred.");
+        location.reload();
+    },10000);
 
     Ransoms.style.display = "block";
 
     let ransomimages = [
-        "https://static.wikia.nocookie.net/doors-game/images/f/f6/RansomJumpscarePopup.png/revision/latest/scale-to-width-down/185?cb=20260830203817",
-        "https://static.wikia.nocookie.net/doors-game/images/a/ad/RansomFlowerPopup.png/revision/latest/scale-to-width-down/185?cb=20260830203759",
-        "https://static.wikia.nocookie.net/doors-game/images/2/21/Images_errorscreen3.png/revision/latest/scale-to-width-down/185?cb=20261004165057",
+        "https://static.wikia.nocookie.net/doors-game/images/f/f6/RansomJumpscarePopup.png/revision/latest?cb=20260830203817",
         "https://static.wikia.nocookie.net/doors-game/images/a/ad/RansomFlowerPopup.png/revision/latest?cb=20260830203759",
-        "https://static.wikia.nocookie.net/doors-game/images/d/df/RansomPopup5.png/revision/latest/scale-to-width-down/185?cb=20260929182145",
-        "https://static.wikia.nocookie.net/doors-game/images/1/14/RansomPopup6.png/revision/latest/scale-to-width-down/185?cb=20260929182154",
-        "https://static.wikia.nocookie.net/doors-game/images/9/97/RansomPopup4.png/revision/latest/scale-to-width-down/185?cb=20260929182131",
-        "https://static.wikia.nocookie.net/doors-game/images/a/a4/Images_errorscreenstop.png/revision/latest/scale-to-width-down/185?cb=20261004165126",
-        "https://static.wikia.nocookie.net/doors-game/images/f/f6/Images_ransomthanks.png/revision/latest/scale-to-width-down/185?cb=20261004165142"
+        "https://static.wikia.nocookie.net/doors-game/images/2/21/Images_errorscreen3.png/revision/latest?cb=20261004165057",
+        "https://static.wikia.nocookie.net/doors-game/images/b/b2/RansomPopup2.png/revision/latest?cb=20260929182118",
+        "https://static.wikia.nocookie.net/doors-game/images/d/df/RansomPopup5.png/revision/latest?cb=20260929182145",
+        "https://static.wikia.nocookie.net/doors-game/images/1/14/RansomPopup6.png/revision/latest?cb=20260929182154",
+        "https://static.wikia.nocookie.net/doors-game/images/9/97/RansomPopup4.png/revision/latest?cb=20260929182131"
     ];
 
     let rayx = 0;
+    let rays = 0;
 
-    let ransomInterval = setInterval(() => {
-        let raxy = Math.floor(Math.random() * ransomimages.length);
+    function playRansomSound() {
+        let Rans1s = new Audio(Rans1);
+        Rans1s.play().catch(console.error);
+    }
+    spawnRansom();
 
-        Ransoms.style.backgroundImage = `url("${ransomimages[raxy]}")`;
+    
+    function spawnRansom() {
+        playRansomSound();
+        let popuprancontainser = document.createElement("div");
+        popuprancontainser.className = "popuprancontainser";
+        Ransoms.appendChild(popuprancontainser);
 
-        rayx++;
+        let circlebuttionx1 = document.createElement("div");
+        circlebuttionx1.className = "circlebuttionx1";
+        popuprancontainser.appendChild(circlebuttionx1);
+
+        let circlebuttionx2 = document.createElement("div");
+        circlebuttionx2.className = "circlebuttionx2";
+        popuprancontainser.appendChild(circlebuttionx2);
+
+        let circlebuttionx3 = document.createElement("div");
+        circlebuttionx3.className = "circlebuttionx3";
+        popuprancontainser.appendChild(circlebuttionx3);
+
+        let rayx = Math.floor(Math.random() * ransomimages.length);
+
+        let popupran = document.createElement("div");
+        popupran.className = "popupran";
+        popupran.style.backgroundImage = `url("${ransomimages[rayx]}")`;
+
+        popuprancontainser.style.zIndex = rays;
+        rays += 2;
+
+        popuprancontainser.appendChild(popupran);
+
+        popuprancontainser.style.left = Math.random() * 100 + "vw";
+        popuprancontainser.style.top = Math.random() * 100 + "vh";
+
         
 
-        if (rayx >= 500) {
-            clearInterval(ransomInterval);
-            Ransoms.style.backgroundImage = 'url("https://static.wikia.nocookie.net/doors-game/images/0/0d/Ransom_Sign.png/revision/latest/scale-to-width-down/174?cb=20260606184953")'
-        }
-        
-    }, 2);
+        setTimeout(spawnRansom, 2 ** (rays / 1000));
+    }
+
+
 
 
 }
 setInterval(omoris,1)
 function omoris(){
     
-    if(Math.round(Math.random()*1000) == 1){
+    if(Math.round(Math.random()*10000) == 1){
         let omori = document.createElement("div");
 
         omori.className = "omori";
+        omori.style.left = Math.random() * 105 + "vw";
+        omori.style.top = Math.random() * 105 + "vh";
 
-        omori.style.left = Math.random() * 100 + "vw";
-        omori.style.top = Math.random() * 100 + "vh";
+        document.getElementsByClassName("body")[0].appendChild(omori);
+
+        setTimeout(() => {
+            omori.style.opacity = 1;
+        }, 1000);
+
+        setTimeout(() => {
+            omori.style.opacity = 0;
+        }, 2000);
+
+        setTimeout(() => {
+            omori.remove();
+        }, 3000);
+
 
         omori.onclick = function(){
             alma();
             omori.remove();
             document.getElementsByClassName("dark")[0].style.opacity = "1";
-};
+        };
 
         document.getElementsByClassName("body")[0].appendChild(omori);
     }
     
 
+    
 let alma2audio;
+let lighthumm;
 
 function alma(){
     let alma = new Audio("https://static.wikia.nocookie.net/doors-game/images/3/3d/Alma_crying_softer.ogg/revision/latest?cb=20260908081937");
+    lighthumm = new Audio("light.mp3");
+    lighthumm.play();
+    lighthumm.volume = 0;
     alma.loop = true;
     alma.volume = 0;
     alma.play();
@@ -527,6 +584,7 @@ function alma(){
 
     let volumeLoader = setInterval(() => {
         volume += 0.01;
+        lighthumm.volume = Math.min(volume, 1);
         alma.volume = Math.min(volume, 1);
 
         if(volume >= 1){
@@ -580,11 +638,408 @@ function alma4(){
 
         document.getElementsByClassName("almas")[0].style.opacity = 1 - volume;
         alma2audio.volume = Math.max(1 - volume, 0);
-
+        lighthumm.volume = Math.max(1 - volume, 0);
         if(volume >= 1){
             clearInterval(volumeLoader);
             alma2audio.pause();
+            let y = Math.random()*5*1000+5000;
+            
+            setTimeout(playScareAudio, y)
+            setTimeout(alma5,y+100)
         }
     }, 10);
 }
+
+
 }
+let almasjumpimage = [
+    "https://static.wikia.nocookie.net/doors-game/images/2/26/AlmaCloseup1.png/revision/latest/scale-to-width-down/1000?cb=20260924070432",
+    "https://static.wikia.nocookie.net/doors-game/images/1/11/AlmaCloseup2.png/revision/latest/scale-to-width-down/1000?cb=20260924070437",
+    "https://static.wikia.nocookie.net/doors-game/images/8/8b/AlmaCloseup_Jumpscare.png/revision/latest/scale-to-width-down/1000?cb=20260924070444",
+    "https://static.wikia.nocookie.net/doors-game/images/1/1b/AlmaCloseup_Jumpscare2.png/revision/latest/scale-to-width-down/1000?cb=20260924070449"
+];
+let hand1image = [
+    "https://static.wikia.nocookie.net/doors-game/images/e/eb/AlmaCloseupHandR_Jumpscare.png/revision/latest/scale-to-width-down/1000?cb=20260924070717",
+    "https://static.wikia.nocookie.net/doors-game/images/4/44/AlmaCloseupHandR_Jumpscare_2.png/revision/latest/scale-to-width-down/1000?cb=20260924070732"
+];
+let hand2image = [
+    "https://static.wikia.nocookie.net/doors-game/images/8/89/AlmaCloseupHandL_Jumpscare.png/revision/latest/scale-to-width-down/1000?cb=20260924070721",
+    "https://static.wikia.nocookie.net/doors-game/images/d/da/AlmaCloseupHandL_Jumpscare_2.png/revision/latest/scale-to-width-down/1000?cb=20260924070736"
+];
+let scareaudio = [
+    "https://static.wikia.nocookie.net/doors-game/images/2/23/Alma_appear.ogg/revision/latest?cb=20260908081923",
+    "https://static.wikia.nocookie.net/doors-game/images/6/65/Alma_spotted.ogg/revision/latest?cb=20260908081947",
+    "https://static.wikia.nocookie.net/doors-game/images/8/8f/Alma_windup.ogg/revision/latest?cb=20260908081959",
+    "https://static.wikia.nocookie.net/doors-game/images/4/4c/Alma_attack1.ogg/revision/latest?cb=20260908081929",
+    "https://static.wikia.nocookie.net/doors-game/images/c/c9/Alma_attack2.ogg/revision/latest?cb=20260908081930",
+    "https://static.wikia.nocookie.net/doors-game/images/6/60/Alma_attack3.ogg/revision/latest?cb=20260908081930",
+    "https://static.wikia.nocookie.net/doors-game/images/e/ea/Alma_vanish.ogg/revision/latest?cb=20260908081953",
+    "light.mp3"
+];
+let scarsounds = scareaudio.map(src => {
+    let audio = new Audio(src);
+    audio.preload = "auto";
+    return audio;
+});
+
+function playScareAudio() {
+    scarsounds.forEach(audio => {
+        audio.currentTime = 0;
+        audio.play().catch(console.error);
+    });
+}
+
+function alma5() {
+    let imagesel = 0;
+    let imagesel2 = 0;
+    let size = 40;
+    let jumpalma = document.getElementsByClassName("jumpalmas")[0];
+    let jumphands = document.getElementsByClassName("jumphands1")[0];
+    let jumphands2 = document.getElementsByClassName("jumphands2")[0];
+    jumpalma.style.opacity = 1;
+    jumphands.style.opacity = 1;
+    jumphands2.style.opacity = 1;
+    let lastTime = 0;
+    
+    
+    function grow(time) {
+        if (!lastTime) lastTime = time;
+        let delta = time - lastTime;
+        lastTime = time;
+
+        size += delta * 0.08;
+
+        
+
+        jumpalma.style.backgroundSize = `${size}% auto`;
+        jumphands.style.backgroundSize = `${size*.7}% auto`;
+        jumphands2.style.backgroundSize = `${size*.7}% auto`;
+
+        requestAnimationFrame(grow);
+    }
+
+    function nextImage() {
+        jumpalma.style.backgroundImage = `url("${almasjumpimage[imagesel]}")`;
+
+        let delay = imagesel === 2 ? 200 : 150;
+        delay = imagesel === 3 ? 300 : 150;
+        imagesel++;
+
+        if (imagesel >= almasjumpimage.length) return;
+
+        setTimeout(nextImage, delay);
+    }
+    function nextImage1() {
+        jumphands.style.backgroundImage = `url("${hand1image[imagesel2]}")`;
+        jumphands2.style.backgroundImage = `url("${hand2image[imagesel2]}")`;
+
+        let delay = imagesel2 === 0 ? 300 : 200;
+        
+        imagesel2++;
+
+        if (imagesel2 >= hand1image.length) return;
+
+        setTimeout(nextImage1, delay);
+    }
+    let i = false;
+
+    function strobe() {
+        if (i) {
+            document.getElementsByClassName("dark")[0].style.background = "rgb(255,255,255)";
+        } else {
+            document.getElementsByClassName("dark")[0].style.background = "rgb(0,0,0)";
+        }
+
+        i = !i;
+    }
+
+    let strobeInterval = setInterval(strobe, 1);
+
+    setTimeout(() => {
+        clearInterval(strobeInterval);
+
+        let dark = document.getElementsByClassName("dark")[0];
+        dark.style.background = "rgb(0,0,0)";
+
+        jumpalma.style.opacity = 0;
+        jumphands.style.opacity = 0;
+        jumphands2.style.opacity = 0;
+        document.getElementsByClassName("dedalma")[0].style.opacity = 1;
+        setTimeout(()=>{
+            location.reload();
+        }, 10000)
+    }, 1000);
+
+    document.getElementsByClassName("dark")[0].style.opacity = 1;
+    
+    jumpalma.style.backgroundPosition = "center bottom";
+    jumpalma.style.backgroundSize = `${size}% auto`;
+
+    nextImage1();
+    nextImage();
+    requestAnimationFrame(grow);
+
+}
+
+wallpaper(localStorage.getItem("wallpaperoption"));
+
+
+let trclicks = 0;
+let rotsss = 0;
+function trophycup(e) {
+    menta = new Audio("metal.mp3");
+    menta.play();
+    
+    rotsss= rotsss + 5;
+    document.getElementsByClassName("Titleimg")[0].style.transform = `rotate(${rotsss}deg)`;
+    trclicks++;
+    for (let i = 0; i < 20; i++) {
+        let spark = document.createElement("span");
+        spark.className = "spark";
+
+        spark.style.left = e.clientX + "px";
+        spark.style.top = e.clientY + "px";
+        document.body.appendChild(spark);
+
+        let angle = Math.random() * Math.PI * 2;
+        let speed = 2 + Math.random() * 5;
+        let vx = Math.cos(angle) * speed;
+        let vy = Math.sin(angle) * speed;
+        let x = 0;
+        let y = 0;
+        let gravity = 0.12 + Math.random() * 0.08;
+        let life = 0;
+        let maxLife = 10 + Math.random() * 50;
+
+        function animate() {
+            life++;
+            x += vx;
+            y += vy;
+            vy += gravity;
+            vx *= 0.99;
+
+            spark.style.transform = `translate(${x}px, ${y}px) scale(${1 - life / maxLife})`;
+            spark.style.opacity = 1 - life / maxLife;
+
+            if (life < maxLife) {
+                requestAnimationFrame(animate);
+            } else {
+                spark.remove();
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+    if (trclicks === 5) {
+        document.getElementsByClassName("gummy")[0].style.transform = "rotate(0)";
+        document.querySelectorAll(".Titleimg").forEach(el => {
+            let y = 0;
+            let x = 0;
+            let velocity = -5;
+            let vx = (Math.random() - 0.5) * 2;
+            let gravity = 0.15;
+
+            function fall() {
+                velocity += gravity;
+                y += velocity;
+                x += vx;
+                vx *= 0.999;
+
+                el.style.transform = `translate(${x}px, ${y}px)`;
+
+                if (y < window.innerHeight + 200) {
+                    requestAnimationFrame(fall);
+                    
+                }else{
+                    el.style.opacity = 0;
+                    el.style.transform = `translate(200px, 000px)`;
+                    el.style.pointerEvents = "none"
+                }
+            }
+
+            requestAnimationFrame(fall);
+        });
+    }
+}
+let gel = [0, 70, 0];
+let gels = [...gel];
+let opsgel = 0.7;
+
+const spotlight = document.querySelector(".spotlight");
+const spotlights = document.querySelector(".spotlights");
+let lightTimer;
+let timeadad;
+
+keys = false;
+function keysss(){
+    document.getElementsByClassName("key")[0].remove();
+    
+}
+function door(){
+    if(keys){
+        localStorage.setItem("wallpaperoption", 7);
+        location.reload();
+    }
+}
+function spot() {
+    let brek = new Audio("breaker.mp3");
+    
+    lighthumm = new Audio("short.mp3");
+    lighthumm.volume = .1;
+    lighthumm2 = new Audio("deum.mp3");
+    lighthumm2.volume = 0.01;
+    lighthumm2.play();
+    lighthumm.play();
+    brek.play();
+    spotlight.style.opacity = spotlight.style.opacity === "1" ? "0" : "1";
+
+    startLight();
+
+    const backroom = document.getElementsByClassName("backroom")[0];
+    backroom.style.opacity = 1;
+    backroom.style.pointerEvents = "all";
+    
+    clearTimeout(timeadad);
+    
+    timeadad = setTimeout(() => {
+        stopLight();
+        backroom.style.opacity = 0;
+        backroom.style.pointerEvents = "none";
+        spotlight.style.opacity = "0";
+        document.getElementsByClassName("gummy")[0].style.opacity = 0;
+        document.getElementsByClassName("gummy")[0].style.pointerEvents = "none";
+        spotlights.style.opacity = 0;
+    }, 10000);
+}
+
+function updateLight() {
+    gels = gels.map(value => Math.max(0, value - 5));
+    opsgel = Math.max(0, opsgel + 0.05);
+
+    spotlights.style.background = `rgb(${gels.map(Math.floor).join(", ")})`;
+    spotlights.style.opacity = opsgel;
+}
+
+document.addEventListener("mousemove", e => {
+    spotlight.style.setProperty("--x", e.clientX + "px");
+    spotlight.style.setProperty("--y", e.clientY + "px");
+});
+
+document.addEventListener("click", () => {
+    if(document.getElementsByClassName("backroom")[0].style.opacity == 1){
+        let clasdadwadaw = new Audio("https://static.wikia.nocookie.net/doors-game/images/8/84/ShakeLight.mp3/revision/latest?cb=20230223205213");
+        clasdadwadaw.play();
+    }
+    
+    gels = gels.map((value, i) => Math.min(gel[i], value + 70));
+    opsgel = Math.min(0.7, opsgel + 7.5);
+});
+
+function startLight() {
+    if (lightTimer) return;
+    lightTimer = setInterval(updateLight, 100);
+    let key = document.createElement("div");
+    key.className = "key";
+    key.onclick = () => keysss();
+    document.querySelector(".backroom").appendChild(key);
+    key.style.left = Math.random() * 90 + "vw";
+    key.style.top = Math.random() * 90 + "vh";
+}
+
+function stopLight() {
+    clearInterval(lightTimer);
+    lightTimer = null;
+    spotlights.style.opacity = 0;
+    lighthumm2.volume= 0;
+    lighthumm.volume= 0;
+}
+
+let drones = [
+    "https://static.wikia.nocookie.net/doors-game/images/4/4e/Black_Figure_%284%29.png/revision/latest/scale-to-width-down/267?cb=20260811152353",
+    "https://static.wikia.nocookie.net/doors-game/images/e/eb/Drone2.gif/revision/latest?cb=20260829135048",
+    "https://static.wikia.nocookie.net/doors-game/images/9/90/Black_Figure_%282%29.png/revision/latest/scale-to-width-down/267?cb=20260811152356",
+    "https://static.wikia.nocookie.net/doors-game/images/3/3a/Black_Figure_%281%29.png/revision/latest/scale-to-width-down/267?cb=20260811152357",
+    "https://static.wikia.nocookie.net/doors-game/images/0/0d/Black_Figure_%285%29.png/revision/latest/scale-to-width-down/268?cb=20260830165024",
+    "https://static.wikia.nocookie.net/doors-game/images/4/48/Black_Figure_%286%29.png/revision/latest?cb=20260916182836",
+    "https://static.wikia.nocookie.net/doors-game/images/e/e6/Black_Figure_%287%29.png/revision/latest/scale-to-width-down/268?cb=20260916181312",
+    "https://static.wikia.nocookie.net/doors-game/images/7/79/Black_Figure_%288%29.png/revision/latest/scale-to-width-down/268?cb=20260916182601",
+    "https://static.wikia.nocookie.net/doors-game/images/9/97/Black_Figure_%289%29.png/revision/latest/scale-to-width-down/268?cb=20260916182544",
+    "https://static.wikia.nocookie.net/doors-game/images/5/52/Bigguy.png/revision/latest/scale-to-width-down/268?cb=20260828224054",
+    "https://static.wikia.nocookie.net/doors-game/images/1/1b/RaredroneD.gif/revision/latest?cb=20260828225603",
+    "https://static.wikia.nocookie.net/doors-game/images/7/74/ENA_Drone_Variant.png/revision/latest?cb=20260914214319",
+    "https://static.wikia.nocookie.net/doors-game/images/1/12/Other_Drone_Variant_That_Might_Be_A_Refrence.png/revision/latest/scale-to-width-down/267?cb=20260914214600",
+    "https://static.wikia.nocookie.net/doors-game/images/1/16/MIKUDRONE.gif/revision/latest/scale-to-width-down/268?cb=20260904173214",
+    "https://static.wikia.nocookie.net/doors-game/images/8/8a/FLOWERYDRONE.png/revision/latest/scale-to-width-down/268?cb=20260916181725",
+    "https://static.wikia.nocookie.net/doors-game/images/1/1e/16.png/revision/latest/scale-to-width-down/267?cb=20260915195048",
+    "https://static.wikia.nocookie.net/doors-game/images/c/c9/17.png/revision/latest?cb=20260915195617" 
+]
+
+function rushhour() {
+    let allDrones = [];
+    chime = new Audio("https://static.wikia.nocookie.net/doors-game/images/0/04/Intercom_chime_lightsoff_high.ogg/revision/latest?cb=20260902233437");
+    
+    chime1 = new Audio("https://static.wikia.nocookie.net/doors-game/images/2/2b/Dronestampede.ogg/revision/latest?cb=20260918013621");
+    chime2 = new Audio("https://static.wikia.nocookie.net/doors-game/images/7/79/Dronestampede_chatter.ogg/revision/latest?cb=20260918013622");
+    chime.play();
+    chime1.volume = 0;
+    chime2.volume = 0;
+    chime1.loop = false;
+    chime1.play();
+    chime2.play();
+
+    let volume = 0;
+    let direction = 1;
+
+    let fade = setInterval(() => {
+        volume += direction * 0.01;
+
+        if (volume >= 1) {
+            volume = 1;
+            direction = -1;
+        }
+
+        chime1.volume = volume;
+        chime2.volume = volume;
+
+        if (volume <= 0 && direction === -1) {
+            clearInterval(fade);
+            chime1.pause();
+            chime2.pause();
+            chime1.currentTime = 0;
+            chime2.currentTime = 0;
+        }
+    }, 30);
+    let rush = setInterval(() => {
+        for (let i = 0; i < 4; i++) {
+            let drone = document.createElement("div");
+            drone.className = "drone";
+            drone.style.backgroundImage = `url("${drones[Math.floor(Math.random() * drones.length)]}")`;
+            drone.style.top = Math.random() * 100 + "vh";
+            drone.style.left = "-200px";
+            document.querySelector(".droness").appendChild(drone);
+
+            allDrones.push({
+                element: drone,
+                x: -200,
+                speed: 30
+            });
+        }
+    }, 1);
+    setTimeout(() => {
+        clearInterval(rush);
+    }, 5000);
+
+    setInterval(() => {
+        allDrones.forEach((item, i) => {
+            item.speed = Math.random()*2 +30;
+            item.x += item.speed;
+            item.element.style.transform = `translateX(${item.x}px)`;
+
+            if (item.element.getBoundingClientRect().left > window.innerWidth + 200) {
+                item.element.remove();
+                allDrones.splice(i, 1);
+            }
+        });
+    }, 1);
+}
+setInterval(rushhour, 300000);
